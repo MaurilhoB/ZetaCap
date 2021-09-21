@@ -1,20 +1,24 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100vh;
-`
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 60px);
+`;
 
 export const MainContent = styled.div`
-  background: ${props => props.theme.colors.surface};
-  max-width: 94%;
+  display: flex;
+  flex: 1;
+  width: 98%;
+  flex-direction: column;
   margin: 0 auto;
+  background: ${props => props.theme.colors.surface};
   border-radius: 10px;
   padding: 40px;
-  height: 94%;
 
   > h1 {
     font-size: 1rem;
-    font-family: "Nunito";
+    font-family: 'Nunito';
     text-align: center;
     margin-bottom: 20px;
   }
@@ -23,7 +27,7 @@ export const MainContent = styled.div`
     max-width: 100%;
     padding: 20px;
   }
-`
+`;
 
 export const CryptoList = styled.div`
   display: grid;
@@ -36,7 +40,7 @@ export const CryptoList = styled.div`
   @media screen and (max-width: 500px) {
     grid-template-columns: 1fr;
   }
-`
+`;
 
 export const Row = styled.div`
   display: flex;
@@ -47,50 +51,49 @@ export const Row = styled.div`
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.01) translateX(1px);
+    transform: scale(1.02) translateX(1px);
+    background: #f2f2f2;
   }
-
-  box-shadow: -1px 0px 0px #f2f2f2;
-`
+`;
 
 export const CryptoIcon = styled.img`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-`
+`;
 
 export const Metadata = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  font-family: "Nunito";
+  font-family: 'Nunito';
   margin: 0 10px;
-`
+`;
 
 export const Name = styled.span`
   font-weight: 700;
   color: ${props => props.theme.colors.text_primary};
-`
+`;
 
 export const Symbol = styled.span`
   font-weight: 600;
   color: ${props => props.theme.colors.text_secondary};
   font-size: 14px;
-`
+`;
 
 export const PriceInfo = styled.div`
   display: flex;
   flex-direction: column;
   color: ${props => props.theme.colors.text_primary};
-  font-family: "Nunito";
-`
+  font-family: 'Nunito';
+`;
 
 export const Price = styled.span`
   font-weight: 700;
   font-size: 14px;
-`
+`;
 
 export const Status = styled.span`
   font-weight: 700;
   font-size: 12px;
-`
+`;

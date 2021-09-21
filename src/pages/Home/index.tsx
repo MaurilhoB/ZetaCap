@@ -1,6 +1,6 @@
-import React from "react"
-import Header from "../../components/Header"
-import SearchBar from "../../components/SearchBar"
+import React from 'react';
+import Header from '../../components/Header';
+import SearchBar from '../../components/SearchBar';
 
 import {
   Container,
@@ -13,8 +13,8 @@ import {
   Symbol,
   PriceInfo,
   Price,
-  Status
-} from "./styles"
+  Status,
+} from './styles';
 
 const Home: React.FC = () => {
   return (
@@ -40,7 +40,7 @@ const Home: React.FC = () => {
         </CryptoList>
       </MainContent>
     </Container>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
