@@ -15,8 +15,10 @@ export const MainContent = styled.div`
   background: ${props => props.theme.colors.surface};
   border-radius: 10px;
   padding: 40px;
+  box-shadow: 1px 1px 0px ${props => props.theme.colors.border};
 
   > h1 {
+    color: ${props => props.theme.colors.text_primary};
     font-size: 1rem;
     font-family: 'Nunito';
     text-align: center;

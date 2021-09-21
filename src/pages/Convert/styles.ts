@@ -20,12 +20,13 @@ export const Converter = styled.div`
   border-radius: 10px;
   padding: 4%;
 
-  box-shadow: 1px 1px 0px #e0ddd5;
+  box-shadow: 1px 1px 0px ${props => props.theme.colors.border};
 
   > h1 {
+    color: ${props => props.theme.colors.text_primary};
     text-align: center;
     margin-bottom: 25px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: 'Nunito';
   }
 `;
@@ -35,11 +36,12 @@ export const InputContainer = styled.div<IInputContainerProps>`
   align-items: center;
   position: relative;
   border-radius: 10px;
-  border: 2px solid ${props => props.theme.colors.background_primary};
+  border: 2px solid ${props => props.theme.colors.border};
   
   > svg {
     margin-right: 10px;
     font-weight: 600;
+    color: ${props => props.theme.colors.text_primary};
   }
 
   
