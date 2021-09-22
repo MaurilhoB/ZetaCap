@@ -1,45 +1,47 @@
-import React, { useCallback, useContext, createContext, useMemo } from "react"
+import React, { useCallback, useContext, createContext, useMemo } from 'react';
 
-import useStorageState from "../hooks/useStorageState"
+import useStorageState from '../hooks/useStorageState';
 
-import { DefaultTheme, ThemeProvider } from "styled-components"
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 
-import light from "../styles/themes/light"
-import dark from "../styles/themes/dark"
+import light from '../styles/themes/light';
+import dark from '../styles/themes/dark';
 
 interface IAppThemeContextData {
-  currentTheme: DefaultTheme
-  toggleTheme(): void
+  currentTheme: DefaultTheme;
+  toggleTheme(): void;
 }
 
-const AppTheme = createContext<IAppThemeContextData>({} as IAppThemeContextData)
+const AppTheme = createContext<IAppThemeContextData>(
+  {} as IAppThemeContextData,
+);
 
 const AppThemeProvider: React.FC = ({ children }) => {
-  const [theme, setTheme] = useStorageState("@ZetaCap:theme", "light")
+  const [theme, setTheme] = useStorageState('@ZetaCap:theme', 'light');
 
-  const currentTheme = useMemo(() => (theme === "light" ? dark : light), [
-    theme
-  ])
+  const currentTheme = useMemo(() => (theme === 'light' ? light : dark), [
+    theme,
+  ]);
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === "light" ? "dark" : "light")
-  }, [setTheme, theme])
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  }, [setTheme, theme]);
 
   return (
     <AppTheme.Provider value={{ toggleTheme, currentTheme }}>
       <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>
     </AppTheme.Provider>
-  )
-}
+  );
+};
 
 export const useTheme = () => {
-  const context = useContext(AppTheme)
+  const context = useContext(AppTheme);
 
   if (!context) {
-    throw new Error("Context should be used inside the Provider")
+    throw new Error('Context should be used inside the Provider');
   }
 
-  return context
-}
+  return context;
+};
 
-export default AppThemeProvider
+export default AppThemeProvider;
