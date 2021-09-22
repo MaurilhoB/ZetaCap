@@ -13,6 +13,7 @@ export const Container = styled.div`
 `;
 
 export const Input = styled.input`
+  color: ${props => props.theme.colors.text_primary};
   outline: none;
   border: 0;
   padding: 20px 0;
