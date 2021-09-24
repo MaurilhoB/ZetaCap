@@ -1,17 +1,25 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+interface IStatusProps {
+  statusColor?: string;
+}
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 60px);
+  min-height: 100vh;
 `;
 
 export const MainContent = styled.div`
   display: flex;
-  flex: 1;
   width: 98%;
+  flex: 1;
+
   flex-direction: column;
   margin: 0 auto;
+  margin-bottom: 30px;
+
   background: ${props => props.theme.colors.surface};
   border-radius: 10px;
   padding: 40px;
@@ -44,17 +52,18 @@ export const CryptoList = styled.div`
   }
 `;
 
-export const Row = styled.div`
+export const Row = styled(Link)`
   display: flex;
   align-items: center;
   padding: 12px;
   margin: 10px 2px;
   transition: transform 0.1s linear;
+  text-decoration: none;
   cursor: pointer;
 
   &:hover {
     transform: scale(1.02) translateX(1px);
-    background: #f2f2f2;
+    background: #2c8af622;
   }
 `;
 
@@ -88,6 +97,7 @@ export const PriceInfo = styled.div`
   flex-direction: column;
   color: ${props => props.theme.colors.text_primary};
   font-family: 'Nunito';
+  text-align: right;
 `;
 
 export const Price = styled.span`
@@ -95,7 +105,19 @@ export const Price = styled.span`
   font-size: 14px;
 `;
 
-export const Status = styled.span`
+export const Status = styled.span<IStatusProps>`
   font-weight: 700;
   font-size: 12px;
+  color: ${props =>
+    props.statusColor ? props.statusColor : props.theme.colors.text_primary};
+`;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex: 1;
+`;
+
+export const ErrorContainer = styled.div`
+  display: flex;
+  flex: 1;
 `;
