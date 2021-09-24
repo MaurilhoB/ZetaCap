@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 interface IMenuItemProps {
   focused?: boolean;
@@ -12,6 +12,10 @@ export const Container = styled.div`
   background: ${props => props.theme.colors.surface};
   padding: 20px;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 500px) {
+    padding: 5px;
+  }
 `;
 
 export const LeftContainer = styled.div`
@@ -37,7 +41,7 @@ export const MenuItem = styled.li<IMenuItemProps>`
     text-decoration: none;
     font-family: 'Nunito';
     font-family: 18px;
-    font-weight: 700px;
+    font-weight: 700;
     user-select: none;
     color: ${({ theme }) =>
       theme.title === 'light'
@@ -107,7 +111,44 @@ export const RightContainer = styled.div`
 
     font-family: 'Nunito';
     font-family: 18px;
-    font-weight: 700px;
+    font-weight: 700;
     color: ${props => props.theme.colors.text_secondary};
+  }
+`;
+
+const dropdown = keyframes`
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+`;
+
+export const CurrencyToggle = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin-right: 8px;
+  cursor: pointer;
+
+  > ul {
+    display: none;
+  }
+
+  &:hover > ul {
+    display: block;
+    animation: ${dropdown} 0.2s linear;
+  }
+
+  > ul {
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+    background: ${props => props.theme.colors.surface};
+    box-shadow: 0px 1px 0px ${props => props.theme.colors.border};
+    top: 100%;
   }
 `;
