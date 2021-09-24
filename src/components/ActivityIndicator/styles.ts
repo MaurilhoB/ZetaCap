@@ -3,16 +3,14 @@ import styled, { keyframes } from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex: 1;
-  width: 100%;
-  height: 100%;
   align-items: center;
   justify-content: center;
 `;
 
 const loading = keyframes`
   0% {
-    top: 36px;
-    left: 36px;
+    top: 40px;
+    left: 40px;
     width: 0;
     height: 0;
     opacity: 1;
@@ -20,8 +18,8 @@ const loading = keyframes`
   100% {
     top: 0px;
     left: 0px;
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     opacity: 0;
   }
 `;
