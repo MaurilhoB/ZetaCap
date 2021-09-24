@@ -1,8 +1,11 @@
-import React from "react"
-import AppThemeProvider from "./theme"
+import React from 'react';
+import AppPreferencesProvider from './preferences';
+import AppThemeProvider from './theme';
 
 const AppProvider: React.FC = ({ children }) => (
-  <AppThemeProvider>{children}</AppThemeProvider>
-)
+  <AppThemeProvider>
+    <AppPreferencesProvider>{children}</AppPreferencesProvider>
+  </AppThemeProvider>
+);
 
-export default AppProvider
+export default AppProvider;
