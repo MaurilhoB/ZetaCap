@@ -21,11 +21,11 @@ export default createGlobalStyle`
   }
  
   ::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.colors.primary}; 
+    background: #c0c0c0;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: ${props => props.theme.colors.primary}; 
+    background: #b3b3b3; 
   }
 `;
