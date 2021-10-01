@@ -18,6 +18,7 @@ export default createGlobalStyle`
 
   ::-webkit-scrollbar-track {
     background: ${props => props.theme.colors.surface}; 
+    border-radius: 10px;
   }
  
   ::-webkit-scrollbar-thumb {

@@ -13,6 +13,7 @@ import Header from '../../components/Header';
 import SearchBar from '../../components/SearchBar';
 import usePreferences from '../../hooks/usePreferences';
 import api from '../../services/api';
+import { formatCurrency } from '../../utils';
 
 import {
   Container,
@@ -168,13 +169,15 @@ const Home: React.FC = () => {
           <CryptoList>
             {filteredCryptosList.map(crypto => (
               <Row key={crypto.id} to={`/market/${crypto.id}`}>
-                <CryptoIcon src={crypto.image.replace('large', 'small')} />
+                <CryptoIcon src={crypto.image?.replace('large', 'small')} />
                 <Metadata>
                   <Name>{crypto.name}</Name>
-                  <Symbol>{crypto.symbol.toUpperCase()}</Symbol>
+                  <Symbol>{crypto.symbol?.toUpperCase()}</Symbol>
                 </Metadata>
                 <PriceInfo>
-                  <Price>${crypto.current_price}</Price>
+                  <Price>
+                    {formatCurrency(currency)(crypto.current_price)}
+                  </Price>
                   <Status
                     statusColor={
                       crypto.market_cap_change_percentage_24h < 0
@@ -182,7 +185,9 @@ const Home: React.FC = () => {
                         : '#52b788'
                     }
                   >
-                    {crypto.market_cap_change_percentage_24h.toFixed(3)}%
+                    {typeof crypto.market_cap_change_percentage_24h === 'number'
+                      ? crypto.market_cap_change_percentage_24h.toFixed(3) + '%'
+                      : null}
                   </Status>
                 </PriceInfo>
               </Row>

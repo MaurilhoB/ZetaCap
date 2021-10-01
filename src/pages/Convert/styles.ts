@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 interface IInputContainerProps {
-  label?: string;
+  $label?: string;
 }
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 60px);
+  min-height: 100vh;
+  overflow: hidden;
 `;
 
 export const Converter = styled.div`
@@ -19,8 +20,10 @@ export const Converter = styled.div`
   width: 98%;
   border-radius: 10px;
   padding: 4%;
+  position: relative;
 
   box-shadow: 1px 1px 0px ${props => props.theme.colors.border};
+  margin-bottom: 10px;
 
   > h1 {
     color: ${props => props.theme.colors.text_primary};
@@ -37,16 +40,15 @@ export const InputContainer = styled.div<IInputContainerProps>`
   position: relative;
   border-radius: 10px;
   border: 2px solid ${props => props.theme.colors.border};
-  
+
   > svg {
     margin-right: 10px;
     font-weight: 600;
     color: ${props => props.theme.colors.text_primary};
   }
 
-  
   &::before {
-    content: '${props => props.label}';
+    content: '${props => props.$label}';
     display: inline-block;
     position: absolute;
     top: calc(-1.2rem / 1.6);
@@ -59,10 +61,9 @@ export const InputContainer = styled.div<IInputContainerProps>`
     color: ${props => props.theme.colors.text_primary};
   }
 
-  & + div {
+  & + & {
     margin-top: 20px;
   }
-
 `;
 
 export const Input = styled.input`
@@ -86,9 +87,13 @@ export const Input = styled.input`
   }
 `;
 
-export const SelectedCrypto = styled.div`
+export const SelectedCrypto = styled.button`
   display: flex;
   align-items: center;
+  border: 0;
+  background: transparent;
+  padding: 15px 0;
+  cursor: pointer;
 
   > img {
     width: 30px;
@@ -100,6 +105,11 @@ export const SelectedCrypto = styled.div`
     font-family: 'Nunito';
     color: ${props => props.theme.colors.text_primary};
     font-weight: 700;
-    margin-left: 8px;
+    margin-left: 6px;
+  }
+
+  svg {
+    margin-right: 6px;
+    color: ${props => props.theme.colors.border};
   }
 `;

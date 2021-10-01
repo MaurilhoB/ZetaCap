@@ -141,6 +141,7 @@ export const CurrencyToggle = styled.div`
   &:hover > ul {
     display: block;
     animation: ${dropdown} 0.2s linear;
+    z-index: 9999;
   }
 
   > ul {
